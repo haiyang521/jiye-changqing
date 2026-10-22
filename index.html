@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231a1a20'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='%23c9a45c' font-family='serif'%3E青%3C/text%3E%3C/svg%3E">
+<title>基业长青 · 家族传承服务方案（尊享版）</title>
+<style>
+  :root{
+    --gold:#c9a45c; --gold-deep:#a8823d; --ink:#1a1a20;
+    --paper:#f7f3ea; --paper2:#efe7d5; --red:#8e2f2f;
+    --line:#e2d6b8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:"Songti SC","STSong","SimSun",Georgia,serif;
+    background:#e9e2d0;color:var(--ink);line-height:1.85;
+    font-size:15px;
+  }
+  .sheet{max-width:480px;margin:0 auto;background:var(--paper);min-height:100vh;
+    box-shadow:0 0 40px rgba(60,45,20,.12);}
+
+  .cover{min-height:100svh;background:linear-gradient(165deg,#14141a 0%,#1f1b16 55%,#2b2116 100%);
+    color:var(--paper);display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;padding:64px 26px;position:relative;overflow:hidden;}
+  .cover::before{content:"";position:absolute;inset:14px;border:1px solid rgba(201,164,92,.45);pointer-events:none;}
+  .cover::after{content:"";position:absolute;inset:21px;border:1px solid rgba(201,164,92,.18);pointer-events:none;}
+  .seal{font-size:12px;letter-spacing:.45em;color:var(--gold);border:1px solid var(--gold);
+    padding:8px 18px 8px 24px;margin-bottom:38px;}
+  .cover h1{font-size:44px;letter-spacing:.24em;text-indent:.24em;font-weight:700;margin-bottom:10px;}
+  .cover .sub{font-size:16px;color:var(--gold);letter-spacing:.38em;text-indent:.38em;margin-bottom:36px;}
+  .cover .line{width:88px;height:1px;background:var(--gold);margin:0 auto 36px;}
+  .cover .slogan{font-size:15px;color:#d8cdb4;letter-spacing:.1em;line-height:2.1;}
+  .cover .slogan em{font-style:normal;color:var(--gold);}
+  .cover .tag{margin-top:44px;font-size:13px;color:#b8ac90;letter-spacing:.18em;line-height:2;}
+  .cover .meta{margin-top:34px;font-size:11.5px;color:#8d8268;letter-spacing:.22em;line-height:2;}
+
+  section{padding:52px 22px 40px;}
+  .kicker{text-align:center;font-size:12px;letter-spacing:.45em;color:var(--gold-deep);text-indent:.45em;margin-bottom:12px;}
+  h2.title{text-align:center;font-size:26px;letter-spacing:.12em;text-indent:.12em;margin-bottom:14px;font-weight:700;line-height:1.5;}
+  .title-line{width:48px;height:2px;background:var(--gold);margin:0 auto 26px;}
+  .lead{margin:0 auto 30px;text-align:center;font-size:14.5px;color:#4a4538;line-height:1.95;}
+
+  .preface p{margin:0 auto 18px;text-indent:2em;font-size:15px;color:#33302a;}
+  .preface .quote{margin:30px 4px 0;padding:22px 20px;border-left:3px solid var(--gold);
+    background:var(--paper2);font-size:14px;color:#5a4f36;line-height:2;}
+
+  .module{background:#fff;border:1px solid var(--line);padding:24px 20px;margin-bottom:18px;}
+  .module:last-child{margin-bottom:0;}
+  .m-head{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+  .num{flex:0 0 46px;height:46px;border:1px solid var(--gold);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;color:var(--gold-deep);background:var(--paper);line-height:1.15;}
+  .num b{font-size:19px;font-weight:700;letter-spacing:.05em;}
+  .num span{font-size:11px;letter-spacing:.15em;}
+  .m-head h3{font-size:17.5px;letter-spacing:.04em;line-height:1.5;flex:1;min-width:0;}
+  .m-head h3 span{display:block;font-size:12px;color:var(--gold-deep);letter-spacing:.12em;margin-top:3px;font-weight:400;}
+  .tagline{font-size:13.5px;color:var(--red);margin-bottom:10px;letter-spacing:.04em;}
+  .m-body p{font-size:14.5px;color:#3d3a30;margin-bottom:10px;}
+  .m-body ul{list-style:none;margin:6px 0 12px;}
+  .m-body li{font-size:14px;color:#4a463a;padding-left:18px;position:relative;margin-bottom:6px;line-height:1.9;}
+  .m-body li::before{content:"◆";position:absolute;left:0;top:0;font-size:8px;color:var(--gold);line-height:2.3;}
+  .value{font-size:13px;color:var(--gold-deep);background:var(--paper2);padding:12px 14px;letter-spacing:.02em;line-height:1.9;}
+  .value b{color:var(--red);}
+
+  .tech{background:linear-gradient(160deg,#16161d,#221d14);color:#e6ddc4;}
+  .tech h2.title{color:#f2e8cf;}
+  .tech .lead{color:#b9b096;}
+  .app-card{border:1px solid rgba(201,164,92,.35);padding:22px 18px;background:rgba(255,255,255,.02);margin-bottom:16px;}
+  .app-card:last-of-type{margin-bottom:0;}
+  .app-card h4{font-size:17px;color:var(--gold);margin-bottom:4px;letter-spacing:.06em;line-height:1.6;}
+  .app-card .pos{font-size:12.5px;color:#9d9277;letter-spacing:.12em;margin-bottom:14px;}
+  .feat{display:flex;flex-wrap:wrap;gap:7px;}
+  .feat span{border:1px solid rgba(201,164,92,.4);color:#d5cbab;font-size:12.5px;padding:5px 11px;letter-spacing:.04em;}
+  .feat span.hot{border-color:var(--gold);color:var(--gold);}
+  .app-card p{margin-top:14px;font-size:13.5px;color:#c4b996;line-height:1.9;}
+  .app-note{margin-top:22px;padding:18px 18px;border:1px solid var(--gold);background:rgba(201,164,92,.08);}
+  .app-note p{font-size:13.5px;color:#e9dfb9;text-align:center;line-height:2;}
+  .app-note b{color:var(--gold);}
+
+  .v-list{margin:0 2px;}
+  .v-row{display:flex;justify-content:space-between;gap:14px;align-items:baseline;
+    padding:14px 4px;border-bottom:1px solid var(--line);}
+  .v-row .v-left{flex:1;min-width:0;}
+  .v-row .v-name{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+  .v-row .v-desc{font-size:13px;color:#6b6350;line-height:1.8;}
+  .v-row .v-price{flex:0 0 auto;font-size:14px;color:var(--red);font-weight:700;white-space:nowrap;}
+  .v-total{display:flex;justify-content:space-between;align-items:baseline;
+    background:var(--paper2);padding:16px 14px;margin-top:14px;}
+  .v-total .v-name{font-size:15px;font-weight:700;}
+  .v-total .v-price{font-size:17px;color:var(--ink);font-weight:700;}
+  .v-deal{display:flex;justify-content:space-between;align-items:baseline;
+    background:#f3ecd9;padding:18px 14px;margin-top:8px;border:1px solid var(--gold);}
+  .v-deal .v-name{font-size:15px;font-weight:700;}
+  .v-deal .v-sub{font-size:12.5px;color:#7a6f52;}
+  .v-deal .v-price{font-size:22px;color:var(--red);font-weight:700;}
+  .save-note{text-align:center;margin-top:20px;font-size:13.5px;color:#7a6f52;line-height:2;}
+  .save-note b{color:var(--red);}
+
+  .close{background:linear-gradient(165deg,#14141a,#241c10);color:#e8e0cc;text-align:center;}
+  .close h2.title{color:#f2e8cf;}
+  .reasons{list-style:none;margin:0 2px 30px;text-align:left;}
+  .reasons li{font-size:14.5px;padding:14px 2px;color:#d8cfae;line-height:1.95;
+    border-bottom:1px dashed rgba(201,164,92,.25);}
+  .reasons li b{color:var(--gold);}
+  .urgency{margin:0 2px 30px;border:1px solid var(--gold);padding:22px 18px;background:rgba(201,164,92,.06);text-align:left;}
+  .urgency h4{color:var(--gold);font-size:16px;letter-spacing:.14em;margin-bottom:12px;text-align:center;}
+  .urgency p{font-size:13.5px;color:#cfc5a3;margin-bottom:8px;line-height:1.9;}
+  .final-price{font-size:14px;color:#b8ac90;letter-spacing:.16em;line-height:2;}
+  .final-price b{display:block;font-size:42px;color:var(--gold);margin:12px 0 6px;font-weight:700;letter-spacing:.06em;}
+  .final-price small{font-size:12.5px;color:#8d8268;letter-spacing:.08em;line-height:1.9;display:block;}
+  .contact{margin-top:36px;font-size:13.5px;color:#9d9277;letter-spacing:.1em;line-height:2.4;}
+  .footer{text-align:center;padding:28px 22px;font-size:11.5px;color:#9a917c;letter-spacing:.2em;
+    background:var(--paper);border-top:1px solid #ddd2b8;line-height:2;}
+</style>
+<base target="_blank">
+</head>
+<body>
+<div class="sheet">
+
+<div class="cover">
+  <div class="seal">私 享 定 制 · 尊 属 呈 递</div>
+  <h1>基业长青</h1>
+  <div class="sub">家 族 传 承 服 务 方 案</div>
+  <div class="line"></div>
+  <div class="slogan">
+    创业难，守业更难，传业尤难。<br>
+    我们以<em>八大服务体系</em>，助您将一生的奋斗、智慧与家风，<br>
+    铸成家族世代相传的<em>精神不动产</em>。
+  </div>
+  <div class="tag">尊 享 版 全 案 服 务 · 八 大 模 块 一 次 构 建</div>
+  <div class="meta">呈 递 对 象 · 家 族 掌 门 人<br>方 案 密 级 · 私 密</div>
+</div>
+
+<section class="preface">
+  <div class="kicker">序 言</div>
+  <h2 class="title">为什么是您，为什么是现在</h2>
+  <div class="title-line"></div>
+  <p>过去三十年，您白手起家，把一个名字做成了一份事业，把一份事业做成了一个家族的根基。然而财富的传承有其自然规律：第一代创造财富，第二代守住财富，第三代消耗财富——"富不过三代"并非宿命，而是<b>缺乏系统传承安排</b>的必然结果。</p>
+  <p>真正能够穿越周期的家族，传承的从来不是账户上的数字，而是四样东西：<b>值得书写的奋斗史、可供仰望的精神坐标、凝聚血脉的家规家训、以及让后代"想败家都难"的制度设计</b>。</p>
+  <p>本方案以尊享版全案服务，为您一次性构建家族传承的完整基础设施——从精神文献到数字空间，从制度设计到家族共同体运营，八大模块环环相扣，让您的家族从此"有史可讲、有规可依、有神可聚、有库可用、有器可传"。</p>
+  <div class="quote">
+    "道德传家，十代以上；耕读传家次之；诗书传家又次之；富贵传家，不过三代。"—— 曾国藩<br>
+    今天的投入，是给一百年后的家族回信。
+  </div>
+</section>
+
+<section>
+  <div class="kicker">服 务 内 容</div>
+  <h2 class="title">八大模块 · 全案构建</h2>
+  <div class="title-line"></div>
+  <p class="lead">每一模块既可独立成篇，更彼此呼应：宪法是纲，自传与纪录片是史，画册与家训是魂，金库是器，双App平台是场，健康诊断是护航——所有交付物最终汇入"名门望族"家族数字空间，一屏尽收，世代可及。</p>
+
+  <div class="module">
+    <div class="m-head">
+      <div class="num"><b>01</b><span>壹</span></div>
+      <h3>家族宪法制定<span>+ 《大家长自传》传记</span></h3>
+    </div>
+    <div class="m-body">
+      <div class="tagline">一部宪法立规矩，一部传记立精神。</div>
+      <p>家族宪法是家族治理的"根本大法"：明确家族使命愿景、治理结构、决策机制、成员权利义务、冲突解决与宪章修订程序，让家族事务从此"有法可依"，从根本上规避代际分歧与资产纷争。</p>
+      <ul>
+        <li>资深家族治理顾问1对1访谈，深度梳理家族发展脉络与核心价值</li>
+        <li>《家族宪法》正式文本撰写、定稿、印制（烫金精装收藏本3册）</li>
+        <li>《大家长自传》专业传记采写，由专职作家与编辑历时数月完成，从筚路蓝缕到守成创新，完整留存一代人的创业史诗</li>
+        <li>家族宪法宣读仪式策划支持（可选节点：年会、寿宴、祭祖）</li>
+      </ul>
+      <div class="value">成交价值：家族宪法让后代"有章可循"，自传让精神"有书可传"。单此两项的市场订制价值即逾 <b>15万元</b>。</div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="m-head">
+      <div class="num"><b>02</b><span>贰</span></div>
+      <h3>个人 / 家族纪录片<span>精 简 版 · 10 分 钟 内</span></h3>
+    </div>
+    <div class="m-body">
+      <div class="tagline">影像比记忆更长久，故事比说教更有力。</div>
+      <p>由专业纪录片团队执导，以电影级标准记录大家长的口述人生与家族的重大时刻。后代看到的不再是模糊的老照片，而是祖辈亲口讲述的峥嵘岁月——这是任何财富都无法复制的家庭教育素材。</p>
+      <ul>
+        <li>导演+摄像+灯光+后期全建制专业团队，4K电影机拍摄</li>
+        <li>深度访谈拍摄，老照片/老影像资料修复与数字化</li>
+        <li>成片为精简版正片10分钟以内（节奏紧凑，适合家族年会、祠堂播放与亲友传播）</li>
+        <li>交付视频素材库（导剪版原始素材完整移交，家族可自行二次剪辑使用）</li>
+        <li>注：如需10分钟以上加长版/完整版正片，超出部分另行报价，签约时可预约档期</li>
+      </ul>
+      <div class="value">成交价值：精简版凝练最动人的家族叙事，节奏紧凑、传播性强，市场定制价值 <b>6万元</b>；加长版按需加购，丰俭由人。</div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="m-head">
+      <div class="num"><b>03</b><span>叁</span></div>
+      <h3>家族传承画册<span>珍 藏 版</span></h3>
+    </div>
+    <div class="m-body">
+      <div class="tagline">一卷画册装下整部家族史，让每一页都可翻阅、可传家。</div>
+      <p>以博物馆级装帧标准打造的家族影像志，不只收纳照片，更系统梳理家族的来处与去处：从姓氏起源的源流考辨，到家风家训家规的凝练呈现；从纵横世代的家族谱系图，到编年记事的家族大事记，再到定格团圆的家族留影墙。一部画册，就是一部可以捧在手里的家族简史——逢年过节全家翻阅，是最自然的家风教育场景。</p>
+      <ul>
+        <li>姓氏起源：考述本姓源流、郡望堂号与迁徙脉络，让后代知道"我们从哪里来"</li>
+        <li>家风家训家规：将家族精神关键词与治家箴言凝练入册，成为代代诵读的传家文本</li>
+        <li>家族谱系图：绘制纵横世代的世系脉络，亲疏昭穆一目了然</li>
+        <li>家族大事记：编年记录创业、婚嫁、升学、乔迁等家族里程碑</li>
+        <li>家族留影墙：精选全家福与各小家庭成长瞬间，老照片专业修复上色</li>
+        <li>专属美术编辑全程设计，封面烫金压纹 + 布面函套；精装印制20册，附收藏编号与收藏证书，电子版同步交付</li>
+      </ul>
+      <div class="value">成交价值：一册在手，源流、家风、世系、大事、影像俱全，既是家族凝聚力的仪式道具，也是可触摸、可摩挲的传家信物，全套市场价值 <b>5万元</b>。</div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="m-head">
+      <div class="num"><b>04</b><span>肆</span></div>
+      <h3>家风家训家规<span>私 享 定 制</span></h3>
+    </div>
+    <div class="m-body">
+      <div class="tagline">无规矩不成方圆，无家训不成望族。</div>
+      <p>家训不是挂在墙上的口号，而是一套家族成员日用而不觉的行为操作系统。我们提炼您家族独有的精神关键词，将其转化为可诵读、可践行、可考核的家风体系。</p>
+      <ul>
+        <li>家风提炼工作坊：从家族真实故事中萃取3–5个家风关键词</li>
+        <li>《家训百字铭》等朗朗上口的韵文创作，便于子孙诵记</li>
+        <li>家规细则定制：治学、修身、齐家、兴业、处世五大维度</li>
+        <li>家风家训家规体系凝结为绢帛挂画 / 竹简手工艺品10份（古朴雅致，各小家庭悬挂收藏，亦可作传家赠礼）</li>
+      </ul>
+      <div class="value">成交价值：钱散人聚，规矩聚神。定制家风体系市场价值 <b>3万元</b>，其对家族成员行为的长期塑造无可估量。</div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="m-head">
+      <div class="num"><b>05</b><span>伍</span></div>
+      <h3>家族发展金库管理方案<span>制 度 设 计</span></h3>
+    </div>
+    <div class="m-body">
+      <div class="tagline">让家族的善意与资源，有章法地流向未来。</div>
+      <p>家族金库（Family Fund）是现代家族传承的核心制度：通过章程化的资金归集、使用审批与公益配比机制，让家族资金既服务于后代教育、创业扶持、应急救助，又反哺社会公益，实现"富而有责、积善传家"。</p>
+      <ul>
+        <li>金库章程设计：资金来源、归集比例、使用范围、审批权限、透明公示机制</li>
+        <li>三代人受益规则：教育金、创业金、婚育祝福金、医疗应急金的制度安排</li>
+        <li>公益配比机制：让每一笔家族支出都伴随一份社会责任，沉淀家族声望</li>
+        <li>年度金库报告模板 + 数字空间"数字金库"看板数据对接</li>
+      </ul>
+      <div class="value">成交价值：专业的家族基金制度设计，市场咨询费即达 <b>10万元级</b>；其价值更在于让财富成为凝聚而非分裂家族的力量。</div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="m-head">
+      <div class="num"><b>06</b><span>陆</span></div>
+      <h3>名门望族App 尊享会员<span>6 席 · ¥9,981/席</span></h3>
+    </div>
+    <div class="m-body">
+      <div class="tagline">一款App，就是您家族的专属数字空间。</div>
+      <p>名门望族App并非普通会员产品——它本身就是一座<b>数字化的家族宗祠与档案馆</b>。十大功能全部围绕"家族传承"设计：从姓氏文化寻根，到数字族谱续谱；从3D虚拟祠堂祭祖，到数字金库保管家族重要文献。本方案为您家族的6位核心成员开通尊享会员。</p>
+      <ul>
+        <li>6席尊享会员（单席价值¥9,981，合计¥59,886）</li>
+        <li>姓氏文化 · 数字族谱 · 家风家训 · 家族大事记 · 成长记</li>
+        <li>3D线上纪念馆 · 3D虚拟祠堂 · 逝者档案 · 家族树</li>
+        <li>数字金库：家族宪法、自传、纪录片、契约合同、遗嘱等核心文献加密上传，分级权限、永久保存</li>
+        <li>尊享会员专属：名家大课、家族活动、同频家族社群、专属顾问通道</li>
+      </ul>
+      <div class="value">成交价值：本方案前五大模块的所有交付物——宪法、自传、纪录片、画册、家训——均可一键存入数字金库，<b>实体传家 + 数字传家</b>双轨并行。6席会员单购即需 <b>59,886元</b>。</div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="m-head">
+      <div class="num"><b>07</b><span>柒</span></div>
+      <h3>积善之家App 尊享会员<span>20 席 · ¥398/席</span></h3>
+    </div>
+    <div class="m-body">
+      <div class="tagline">把家风的边界，扩展到整个家族网络。</div>
+      <p>积善之家——中国数字家庭首选平台。家族不止直系三代：兄弟姐妹、堂表宗亲、姻亲故旧，都是家族共同体的一员。20个会员名额覆盖更广大的家族亲缘网络，让善行有记录、亲情有触点。</p>
+      <ul>
+        <li>20席尊享会员（单席价值¥398，合计¥7,960）</li>
+        <li>姓氏文化 · 数字家谱 · 家风家训 · 善行账本 · 家庭大事记 · 成长记</li>
+        <li>积善之家小剧场：家风故事短视频，老少皆宜的家庭教育素材</li>
+        <li>爱心馆：为积善之家会员及相关群体提供交流、成长、创业、行善的综合平台，兼具情感联结、学习赋能、资源整合、公益传递四大价值</li>
+        <li>家风打卡、节日互动等轻量工具，让远亲越走越近</li>
+      </ul>
+      <div class="value">成交价值：20席尊享会员单购价值 <b>7,960元</b>——以极低的边际成本，激活整个家族网络，实现"积善之家，必有余庆"的数字实践。</div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="m-head">
+      <div class="num"><b>08</b><span>捌</span></div>
+      <h3>家族传承健康诊断服务<span>免 费 赠 送</span></h3>
+    </div>
+    <div class="m-body">
+      <div class="tagline">先体检，再开方——传承工程的第一步是诊断。</div>
+      <p>由家族传承顾问团队出具《家族传承健康诊断报告》，从治理结构、家风建设、成员共识、代际沟通、传承工具等六大维度20余项指标，为您的家族做一次全面"CT扫描"，明确短板与优先级，让后续模块有的放矢。</p>
+      <ul>
+        <li>家族成员深度访谈 + 全员匿名问卷测评</li>
+        <li>《家族传承健康诊断报告》一份（40页+，含改进路线图）</li>
+        <li>顾问一对一解读会2小时，直面家族真问题</li>
+      </ul>
+      <div class="value">成交价值：常规家族诊断服务收费 <b>3–5万元</b>，本方案免费赠送——因为诊断越清楚，全案价值越凸显。</div>
+    </div>
+  </div>
+</section>
+
+<section class="tech">
+  <div class="kicker">平 台 说 明</div>
+  <h2 class="title">两大App · 功能矩阵</h2>
+  <div class="title-line"></div>
+  <p class="lead">八大服务的所有实体交付物，在数字世界都有安放之处——实体传家，数字永续。</p>
+
+  <div class="app-card">
+    <h4>名门望族 · 家族数字空间</h4>
+    <div class="pos">服务家族核心层 · 尊享会员 ¥9,981/席</div>
+    <div class="feat">
+      <span>姓氏文化</span><span>数字族谱</span><span>家风家训</span><span>家族大事记</span>
+      <span>成长记</span><span class="hot">3D线上纪念馆</span><span class="hot">3D虚拟祠堂</span>
+      <span>逝者档案</span><span>家族树</span><span class="hot">数字金库</span>
+    </div>
+    <p>数字金库专用于保管家族宪法、遗嘱、契约、合同、自传、纪录片等核心文献——前五大模块的交付成果上传即归档，加密存储、分级授权、永久可及。</p>
+  </div>
+  <div class="app-card">
+    <h4>积善之家 · 中国数字家庭首选平台</h4>
+    <div class="pos">服务家族亲友网络 · 尊享会员 ¥398/席</div>
+    <div class="feat">
+      <span>姓氏文化</span><span>数字家谱</span><span>家风家训</span><span class="hot">善行账本</span>
+      <span>家庭大事记</span><span>成长记</span><span class="hot">积善之家小剧场</span><span class="hot">爱心馆</span>
+    </div>
+    <p>善行账本记录家族成员善行义举，小剧场输出家风故事短视频；爱心馆则以交流、成长、创业、行善四位一体的综合平台，承载家族的情感联结、学习赋能、资源整合与公益传递——让"积善传家"从口号变成全家参与的生活方式。</p>
+  </div>
+
+  <div class="app-note">
+    <p><b>为什么是"双App联动"？</b>名门望族承载"治家"的庄重——宪法、族谱、金库；积善之家承载"齐家"的温度——善行、互动、成长。核心6人庄重传承，亲缘20人广泛连接，一个家族，两个维度，完整覆盖。</p>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">价 值 总 览</div>
+  <h2 class="title">八 大 服 务 · 价 值 清 单</h2>
+  <div class="title-line"></div>
+  <div class="v-list">
+    <div class="v-row"><div class="v-left"><div class="v-name">壹 · 家族宪法 + 《大家长自传》</div><div class="v-desc">家族宪法精装本3册 + 个人传记专著</div></div><div class="v-price">150,000元</div></div>
+    <div class="v-row"><div class="v-left"><div class="v-name">贰 · 个人/家族纪录片（精简版）</div><div class="v-desc">10分钟内正片 + 视频素材库</div></div><div class="v-price">60,000元</div></div>
+    <div class="v-row"><div class="v-left"><div class="v-name">叁 · 家族传承画册（珍藏版）</div><div class="v-desc">姓氏起源 · 家风家训 · 谱系图 · 大事记 · 留影墙｜精装20册 + 电子版</div></div><div class="v-price">50,000元</div></div>
+    <div class="v-row"><div class="v-left"><div class="v-name">肆 · 家风家训家规私享定制</div><div class="v-desc">家风家训家规体系 + 绢帛挂画/竹简手工艺品10份</div></div><div class="v-price">30,000元</div></div>
+    <div class="v-row"><div class="v-left"><div class="v-name">伍 · 家族发展金库管理方案</div><div class="v-desc">金库章程 + 三代受益规则 + 年度报告模板</div></div><div class="v-price">100,000元</div></div>
+    <div class="v-row"><div class="v-left"><div class="v-name">陆 · 名门望族App尊享会员 × 6</div><div class="v-desc">¥9,981 × 6 = 家族数字空间6席</div></div><div class="v-price">59,886元</div></div>
+    <div class="v-row"><div class="v-left"><div class="v-name">柒 · 积善之家App尊享会员 × 20</div><div class="v-desc">¥398 × 20 = 数字家庭平台20席</div></div><div class="v-price">7,960元</div></div>
+    <div class="v-row"><div class="v-left"><div class="v-name">捌 · 家族传承健康诊断</div><div class="v-desc">诊断报告 + 解读会（免费赠送）</div></div><div class="v-price">30,000元</div></div>
+    <div class="v-total"><div class="v-name">八大模块市场价值合计</div><div class="v-price">487,846元</div></div>
+    <div class="v-deal"><div><div class="v-name">尊享年费全案价</div><div class="v-sub">八大模块一次构建 · 服务周期12个月</div></div><div class="v-price">39.8万元</div></div>
+  </div>
+  <p class="save-note">全案价格较市场总价值立省 <b>89,846元（约8.98万元）</b><br>因为我们看重的不是一单生意，而是一个家族百年的信任。</p>
+</section>
+
+<section class="close">
+  <div class="kicker">现 在 决 定 的 五 个 理 由</div>
+  <h2 class="title">为家族，此刻即是最佳时机</h2>
+  <div class="title-line"></div>
+  <ul class="reasons">
+    <li><b>壹 · 时间是唯一不可再生的成本。</b>长辈的记忆、老照片的原貌、家族的口述史，每一天都在不可逆地流失。纪录片的镜头，今天拍和三年后拍，内容厚度完全不同。</li>
+    <li><b>贰 · 先诊断后全案，零决策风险。</b>第一步的家族传承健康诊断先行交付，诊断结果不满意，后续模块可协商调整——您永远握有主动权。</li>
+    <li><b>叁 · 一套班子，全年陪跑。</b>专属客户成功经理+家族治理顾问+创作团队全程服务群对接，不是交完作品就结束，而是一整年的持续陪伴与迭代。</li>
+    <li><b>肆 · 数字空间开通即用，无需等待。</b>名门望族App家族数字空间功能成熟完备：宪法、自传、纪录片、画册录入"数字金库"，家族树即刻开枝散叶——签约当月，家族就上云。</li>
+    <li><b>伍 · 价格锚点清晰，机遇窗口有限。</b>全案价39.8万元，较模块市场总价值立省约8.98万元。本季度仅开放<b>3个全案服务名额</b>（团队产能所限），以签约顺序为准。</li>
+  </ul>
+
+  <div class="urgency">
+    <h4>本月签约 · 专属加赠（三选二）</h4>
+    <p>① 家族宪法宣读仪式全程策划与主持支持（价值3万元）</p>
+    <p>② 大家长生平口述史音频专辑（10期精剪，价值2万元）</p>
+    <p>③ 纪录片加长版（10分钟以上）升级抵扣券（价值2万元）</p>
+  </div>
+
+  <div class="final-price">
+    基业长青 · 尊享版全案服务
+    <b>39.8万元</b>
+    <small>含八大模块全部交付 / 服务周期12个月 / 分期支付方案可洽</small>
+  </div>
+
+  <div class="contact">
+    专属家族顾问：___________　联系电话：___________<br>
+    "给子孙留钱，他们会花完；给子孙留精神，他们会再创造钱。"
+  </div>
+</section>
+
+<div class="footer">基 业 长 青 · 家 族 传 承 服 务 方 案（尊 享 版）<br>本方案内容属商业机密，未经许可请勿外传</div>
+
+</div>
+</body>
+</html>
